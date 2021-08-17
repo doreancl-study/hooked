@@ -1,21 +1,21 @@
-import React, {useState} from "react";
+import React, {useState} from 'react';
 
 const Search = (props) => {
-  const [searchValue, setSearchValue] = useState("")
+  const [searchValue, setSearchValue] = useState('');
 
   const handleSearchInputChanges = (e) => {
-    setSearchValue(e.target.value)
-  }
+    setSearchValue(e.target.value);
+  };
 
   const resetInputField = () => {
-    setSearchValue("")
-  }
+    setSearchValue('');
+  };
 
   const callSearchFunction = (e) => {
-    e.preventDefault()
-    props.search(searchValue)
-    resetInputField()
-  }
+    e.preventDefault();
+    props.search(searchValue);
+    resetInputField();
+  };
 
   return (
     <form className="search">
@@ -24,9 +24,9 @@ const Search = (props) => {
         onChange={handleSearchInputChanges}
         type="text"
       />
-      <input onClick={callSearchFunction} type="submit" value="SEARCH"/>
+      <input onClick={callSearchFunction} type="submit" value="SEARCH" />
     </form>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;
