@@ -77,8 +77,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header text="HOOKED" />
-      <Search search={search} />
+      <Header title="HOOKED" />
+      <Search searchCB={search} />
       <p className="App-intro">Sharing a few of our favorite movies</p>
       <div className="movies">
         {loading && !errorMessage ? (
@@ -86,9 +86,9 @@ const App = () => {
         ) : errorMessage ? (
           <div className="errorMessage">{errorMessage}</div>
         ) : (
-          movies.map((movie, index) => (
-            <Movie key={`${index}-${movie.Title}`} movie={movie} />
-          ))
+          movies.map((movie, index) => {
+            return <Movie key={`${index}-${movie.Title}`} movie={movie} />;
+          })
         )}
       </div>
     </div>

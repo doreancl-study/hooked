@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 
-const Search = (props) => {
+const Search = ({searchCB}) => {
   const [searchValue, setSearchValue] = useState('');
 
   const handleSearchInputChanges = (e) => {
@@ -13,7 +14,7 @@ const Search = (props) => {
 
   const callSearchFunction = (e) => {
     e.preventDefault();
-    props.search(searchValue);
+    searchCB(searchValue);
     resetInputField();
   };
 
@@ -27,6 +28,10 @@ const Search = (props) => {
       <input onClick={callSearchFunction} type="submit" value="SEARCH" />
     </form>
   );
+};
+
+Search.propTypes = {
+  searchCB: PropTypes.func.isRequired,
 };
 
 export default Search;
